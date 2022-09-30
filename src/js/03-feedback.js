@@ -1,8 +1,8 @@
 import throttle from 'lodash.throttle';
 
 const formEl = document.querySelector('.feedback-form');
-const emailEl = document.querySelector('.email');
-const messageEl = document.querySelector('.message');
+const emailEl = document.querySelector('[name = "email"]');
+const messageEl = document.querySelector('[name = "message"]');
 
 formEl.addEventListener('input', throttle(inputHandler, 500));
 formEl.addEventListener('submit', submitHandler);
@@ -14,7 +14,7 @@ if (parsedata) {
   emailEl.value = parsedata.email;
   messageEl.value = parsedata.message;
 }
-// console.log(localStorage);
+console.log(localStorage);
 
 function inputHandler() {
   let email = emailEl.value;
@@ -27,8 +27,8 @@ function inputHandler() {
 
 function submitHandler(event) {
   event.preventDefault();
-  let email = event.currentTarget.elements.email.value;
-  let message = event.currentTarget.elements.message.value;
+  let email = event.target.elements.email.value;
+  let message = event.target.elements.message.value;
 
   if (email === '' || message === '') {
     return alert('please fill the form');
