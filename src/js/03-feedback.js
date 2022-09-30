@@ -17,8 +17,8 @@ if (parsedata) {
 console.log(localStorage);
 
 function inputHandler() {
-  let email = emailEl.value;
-  let message = messageEl.value;
+  const email = emailEl.value;
+  const message = messageEl.value;
   localStorage.setItem(
     'feedback-form-state',
     JSON.stringify({ email, message })
